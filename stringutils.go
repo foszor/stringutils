@@ -1,5 +1,7 @@
 package stringutils
 
+import "strings"
+
 // Contains checks if a string array has a value
 func Contains(arr []string, value string) bool {
 	contains := false
@@ -64,4 +66,30 @@ func RemoveValue(arr []string, str string) []string {
 	}
 
 	return arr
+}
+
+// BeginsWith determines if a string begins with any of the strings provided in the array
+func BeginsWith(str string, arr []string) bool {
+	if len(arr) == 0 {
+		return false
+	}
+	for _, s := range arr {
+		if strings.HasPrefix(str, s) {
+			return true
+		}
+	}
+	return false
+}
+
+// EndsWith determines if a string ends with any of the strings provided in the array
+func EndsWith(str string, arr []string) bool {
+	if len(arr) == 0 {
+		return false
+	}
+	for _, s := range arr {
+		if strings.HasSuffix(str, s) {
+			return true
+		}
+	}
+	return false
 }
